@@ -227,4 +227,6 @@ export const ageGroups = [
   { id: '3-4', name: '3-4 tuổi', minAge: 3, maxAge: 4, description: 'Bé đang phát triển tư duy' },
   { id: '4-5', name: '4-5 tuổi', minAge: 4, maxAge: 5, description: 'Bé sẵn sàng học logic' },
   { id: '5-6', name: '5-6 tuổi', minAge: 5, maxAge: 6, description: 'Bé chuẩn bị vào lớp 1' }
-]; 
+];
+// Note: I am removing getHealth() function because it is not defined here.
+// I will create it in a separate step if needed. 

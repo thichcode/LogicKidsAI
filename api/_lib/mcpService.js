@@ -1,4 +1,4 @@
-import LogicKidsMCPClient from '../../api/mcp-client.js';
+import LogicKidsMCPClient from '../mcp-client.js';
 
 class MCPService {
   constructor() {

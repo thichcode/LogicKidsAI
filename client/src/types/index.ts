@@ -25,11 +25,17 @@ export interface ExerciseType {
 
 // Types cho Exercise
 export interface Exercise {
-  id: number;
-  question: string;
+  id: string | number;
+  title?: string;
+  description?: string;
+  question?: string;
   type: string;
   typeName: string;
   typeIcon: string;
+  difficulty?: string;
+  ageGroup?: string;
+  category?: string;
+  createdAt?: string;
   sequence?: string[];
   options?: string[];
   correctAnswer?: string | number;

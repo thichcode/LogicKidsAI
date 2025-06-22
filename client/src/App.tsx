@@ -23,9 +23,10 @@ function App() {
         // Lấy cấu hình ứng dụng (không cần lưu vào state)
         await apiService.getAppConfig();
         
-      } catch (err) {
+      } catch (err: any) {
         console.error('Lỗi khởi tạo ứng dụng:', err);
-        setError(err instanceof Error ? err.message : 'Có lỗi xảy ra khi khởi tạo ứng dụng');
+        const errorMessage = err.message || 'Có lỗi xảy ra khi kết nối tới máy chủ. Vui lòng thử lại.';
+        setError(errorMessage);
       } finally {
         setLoading(false);
       }

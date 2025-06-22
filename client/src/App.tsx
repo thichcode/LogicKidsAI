@@ -7,10 +7,8 @@ import ExerciseGenerator from './pages/ExerciseGenerator';
 import ExerciseViewer from './pages/ExerciseViewer';
 import AboutPage from './pages/AboutPage';
 import { apiService } from './services/api';
-import { AppConfig } from './types';
 
 function App() {
-  const [config, setConfig] = useState<AppConfig | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -22,9 +20,8 @@ function App() {
         // Test kết nối server
         await apiService.getSimpleHealthCheck();
         
-        // Lấy cấu hình ứng dụng
-        const appConfig = await apiService.getAppConfig();
-        setConfig(appConfig);
+        // Lấy cấu hình ứng dụng (không cần lưu vào state)
+        await apiService.getAppConfig();
         
       } catch (err) {
         console.error('Lỗi khởi tạo ứng dụng:', err);

@@ -9,7 +9,6 @@ const ExerciseViewer: React.FC = () => {
   const navigate = useNavigate();
   const [exercise, setExercise] = useState<Exercise | null>(null);
   const [loading, setLoading] = useState(true);
-  const [userAnswers, setUserAnswers] = useState<{ [key: string]: string }>({});
   const [showResults, setShowResults] = useState(false);
 
   useEffect(() => {
@@ -67,13 +66,6 @@ const ExerciseViewer: React.FC = () => {
     setExercise(mockExercise);
     setLoading(false);
   }, [id]);
-
-  const handleAnswerChange = (questionId: string, answer: string) => {
-    setUserAnswers((prev: { [key: string]: string }) => ({
-      ...prev,
-      [questionId]: answer
-    }));
-  };
 
   const handleSubmit = () => {
     setShowResults(true);

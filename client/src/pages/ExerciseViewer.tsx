@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Download, Print, Share2 } from 'lucide-react';
+import { ArrowLeft, Download, Printer, Share2 } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 import { Exercise } from '../types';
 
@@ -19,6 +19,9 @@ const ExerciseViewer: React.FC = () => {
       id: id || '1',
       title: 'Bài tập Logic - Tìm quy luật',
       description: 'Hãy tìm quy luật trong dãy số sau:',
+      type: 'pattern',
+      typeName: 'Tìm quy luật',
+      typeIcon: '🔢',
       content: `
         <div class="exercise-content">
           <h3>Dãy số: 2, 4, 8, 16, 32, ?</h3>
@@ -66,7 +69,7 @@ const ExerciseViewer: React.FC = () => {
   }, [id]);
 
   const handleAnswerChange = (questionId: string, answer: string) => {
-    setUserAnswers(prev => ({
+    setUserAnswers((prev: { [key: string]: string }) => ({
       ...prev,
       [questionId]: answer
     }));
@@ -161,7 +164,7 @@ Thời gian: ${new Date().toLocaleString('vi-VN')}
                 onClick={handlePrint}
                 className="flex items-center px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
               >
-                <Print className="w-4 h-4 mr-1" />
+                <Printer className="w-4 h-4 mr-1" />
                 In
               </button>
               <button

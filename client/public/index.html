@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#4F46E5" />
+    <meta
+      name="description"
+      content="LogicKids AI - Nền tảng tạo bài tập logic cho trẻ em sử dụng AI"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <title>LogicKids AI - Bài Tập Logic Cho Trẻ Em</title>
+    
+    <style>
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+      }
+      
+      #root {
+        min-height: 100vh;
+      }
+      
+      /* Loading animation */
+      .loading-spinner {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #4F46E5;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 20px auto;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>Bạn cần bật JavaScript để chạy ứng dụng này.</noscript>
+    <div id="root">
+      <!-- Loading screen -->
+      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; color: white;">
+        <div style="font-size: 2rem; font-weight: 700; margin-bottom: 1rem;">🧠 LogicKids AI</div>
+        <div style="font-size: 1rem; margin-bottom: 2rem; opacity: 0.8;">Đang tải ứng dụng...</div>
+        <div class="loading-spinner"></div>
+      </div>
+    </div>
+  </body>
+</html> 

@@ -91,7 +91,7 @@ Bài tập: ${exercise?.title}
 Mô tả: ${exercise?.description}
 
 Nội dung bài tập:
-${exercise?.content.replace(/<[^>]*>/g, '')}
+${exercise?.content?.replace(/<[^>]*>/g, '') || 'Không có nội dung'}
 
 Thời gian: ${new Date().toLocaleString('vi-VN')}
     `;
@@ -198,7 +198,7 @@ Thời gian: ${new Date().toLocaleString('vi-VN')}
         <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
           <div 
             className="prose max-w-none"
-            dangerouslySetInnerHTML={{ __html: exercise.content }}
+            dangerouslySetInnerHTML={{ __html: exercise.content || '' }}
           />
           
           {!showResults && (

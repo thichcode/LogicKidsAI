@@ -1,7 +1,7 @@
 {
   "name": "logickids-ai",
   "version": "1.0.0",
-  "description": "Nền tảng tạo bài tập logic cho trẻ em sử dụng Gemini AI",
+  "description": "Nền tảng tạo bài tập logic cho trẻ em sử dụng MCP (Model Context Protocol)",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -11,15 +11,17 @@
     "build": "cd client && npm run build",
     "install-all": "npm install && cd server && npm install && cd ../client && npm install",
     "start": "cd server && npm start",
-    "vercel-build": "cd client && npm run build"
+    "vercel-build": "cd client && npm run build",
+    "mcp-server": "node api/mcp-server.js"
   },
-  "keywords": ["education", "logic", "children", "ai", "gemini", "vercel"],
+  "keywords": ["education", "logic", "children", "ai", "mcp", "vercel"],
   "author": "LogicKids AI Team",
   "license": "MIT",
   "devDependencies": {
     "concurrently": "^8.2.2"
   },
   "dependencies": {
-    "axios": "^1.6.0"
+    "axios": "^1.6.0",
+    "@modelcontextprotocol/sdk": "^0.4.0"
   }
 } 

@@ -23,20 +23,29 @@ api.interceptors.response.use(
   (response: AxiosResponse) => {
     return response;
   },
-  (error) => {
+  (error: any) => {
     console.error('API Error:', error);
     
+    let finalErrorMessage = 'Có lỗi không xác định xảy ra. Vui lòng thử lại.';
+
     if (error.response) {
-      // Server trả về error response
-      const errorMessage = error.response.data?.error || error.response.data?.message || 'Có lỗi xảy ra';
-      return Promise.reject(new Error(errorMessage));
+      // Server trả về lỗi
+      const errorData = error.response.data;
+      if (typeof errorData?.error === 'string' && errorData.error) {
+        finalErrorMessage = errorData.error;
+      } else if (typeof errorData?.message === 'string' && errorData.message) {
+        finalErrorMessage = errorData.message;
+      } else {
+        finalErrorMessage = 'Server trả về lỗi không đúng định dạng.';
+      }
     } else if (error.request) {
-      // Không nhận được response
-      return Promise.reject(new Error('Không thể kết nối đến server. Vui lòng kiểm tra kết nối internet.'));
+      // Không nhận được phản hồi
+      finalErrorMessage = 'Không thể kết nối đến server. Vui lòng kiểm tra kết nối internet.';
     } else {
-      // Lỗi khác
-      return Promise.reject(new Error('Có lỗi xảy ra khi gửi yêu cầu.'));
+      // Lỗi khác khi gửi yêu cầu
+      finalErrorMessage = error.message || 'Có lỗi xảy ra khi gửi yêu cầu.';
     }
+    return Promise.reject(new Error(finalErrorMessage));
   }
 );
 
